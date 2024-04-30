@@ -80,6 +80,21 @@ class BinarySearchTree:
                 queue.append(tmp.right)
         return values
 
+    def dfs_pre_order(self):
+        # This Depth First Search Pre Order implementation
+        # uses the callstack as a stack.
+        if self.root is None:
+            return []
+        values = []
+        def traverse(tmp):
+            values.append(tmp.value)
+            if tmp.left is not None:
+                traverse(tmp.left)
+            if tmp.right is not None:
+                traverse(tmp.right)
+        traverse(self.root)
+        return values
+
     # This is my first implementation of a recursive insert function
     # for a binary search tree
 
