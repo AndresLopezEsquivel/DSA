@@ -10,6 +10,9 @@ if __name__ == "__main__":
     bst.insert(52)
     bst.insert(82)
 
+    print("BFS: ")
+    print(bst.bfs())
+
     print("BST contains 27:")
     print(bst.contains(27))
 

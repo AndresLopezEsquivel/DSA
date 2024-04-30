@@ -1,4 +1,5 @@
 from node import Node
+from collections import deque # https://docs.python.org/3/library/collections.html#collections.deque
 
 class BinarySearchTree:
     def __init__(self):
@@ -60,6 +61,24 @@ class BinarySearchTree:
         while tmp_node.left is not None:
             tmp_node = tmp_node.left
         return tmp_node.value
+
+    def bfs(self):
+        # Executes Breadth First Search
+        if self.root is None:
+            return []
+        # Appends and pops from either side of the deque with approximately
+        # the same O(1) performance in either direction
+        queue  = deque()
+        values = [] # Stores the values of the nodes
+        queue.append(self.root)
+        while len(queue) != 0:
+            tmp = queue.popleft()
+            values.append(tmp.value)
+            if tmp.left is not None:
+                queue.append(tmp.left)
+            if tmp.right is not None:
+                queue.append(tmp.right)
+        return values
 
     # This is my first implementation of a recursive insert function
     # for a binary search tree
