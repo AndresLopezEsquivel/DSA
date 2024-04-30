@@ -95,6 +95,21 @@ class BinarySearchTree:
         traverse(self.root)
         return values
 
+    def dfs_post_order(self):
+        # This Depth First Search Post Order implementation
+        # uses the callstack as a stack.
+        if self.root is None:
+            return []
+        values = []
+        def traverse(tmp):
+            if tmp.left is not None:
+                traverse(tmp.left)
+            if tmp.right is not None:
+                traverse(tmp.right)
+            values.append(tmp.value)
+        traverse(self.root)
+        return values
+
     # This is my first implementation of a recursive insert function
     # for a binary search tree
 

@@ -16,6 +16,9 @@ if __name__ == "__main__":
     print("DFS pre-order: ")
     print(bst.dfs_pre_order())
 
+    print("DFS post-order: ")
+    print(bst.dfs_post_order())
+
     print("BST contains 27:")
     print(bst.contains(27))
 
