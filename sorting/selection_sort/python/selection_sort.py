@@ -5,7 +5,7 @@ def selection_sort(array):
     # where each stage will execute a certain number of iterations.
     # In each stage, the objetive is to find the lowest value of a
     # portion of the array and place it at the beginning of the portion.
-    steps = 0;
+    steps = 0
     for i in range(len(array) - 1):
         # i is the index at which the portion of the array starts
         min_index = i # Stores the index of the lowest value at the given portion
