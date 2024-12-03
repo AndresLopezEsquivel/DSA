@@ -1,19 +1,12 @@
-def insertion_sort(array)
+def insertion_sort(array) # https://www.youtube.com/watch?v=i-SKeOcBwko
   for i in 1...(array.length)
-    # interval variable (i)
-    j = i # decreases as we iterate over the sorted side of the array
-    while j > 0
-      if array[j-1] > array[j] # if the value to the left of j is > than its actual value
-        # move the value to the right as many times as necessary
-        temp = array[j]
-        array[j] = array[j-1]
-        array[j-1] = temp
-      else
-        break
-      end
-      j = j - 1
+    value = array[i] # the value to insert
+    temp = i # determines where the held value will eventually end up
+    while temp > 0 && array[temp - 1] > value
+      array[temp] = array[temp - 1]
+      temp = temp - 1
     end
+    array[temp] = value
   end
-
   array
 end
