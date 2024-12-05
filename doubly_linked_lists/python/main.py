@@ -26,9 +26,9 @@ def main():
 
     # test get
     print("\nTesting get...")
-    print("Value at index 0:", dll.get(0))  # print: 20
-    print("Value at index 2:", dll.get(2))  # print: 25
-    print("Value at index 4:", dll.get(4))  # print: 40
+    print("Value at index 0:", dll.get(0).value)  # print: 20
+    print("Value at index 2:", dll.get(2).value)  # print: 25
+    print("Value at index 4:", dll.get(4).value)  # print: 40
     print("Value at invalid index 10:", dll.get(10))  # print: -1
 
     # test remove

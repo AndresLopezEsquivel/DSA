@@ -33,25 +33,39 @@ class DoublyLinkedList: # https://www.geeksforgeeks.org/doubly-linked-list/
             self.tail = new_node
         self.size += 1
 
+    def get(self, index):
+        if index < 0 or index >= self.size: # validate index
+            return -1
+
+        if index < self.size // 2: # 1st half of the list
+            curr = self.head
+            for _ in range(index):
+                curr = curr.next
+        else: # 2nd half of the list
+            curr = self.tail
+            for _ in range(self.size - 1, index, -1):
+                curr = curr.prev
+
+        return curr
+
     def insert(self, index, value): # add at index
         if index < 0 or index > self.size:
             return
+
         if index == 0:
-            self.prepend(value)
-            return
-        if index == self.size:
-            self.append(value)
-            return
+            return self.prepend(value)
+        elif index == self.size:
+            return self.append(value)
+        else:
+            new_node = Node(value)
+            before = self.get(index - 1) # locate the node before the desired position
+            curr = before.next # find the node
 
-        new_node = Node(value)
-        curr = self.head
-        for _ in range(index - 1):
-            curr = curr.next
-
-        new_node.next = curr.next
-        new_node.prev = curr
-        curr.next.prev = new_node # adjust the next node's prev pointer
-        curr.next = new_node # adjust the current node's next pointer
+            # update new node's pointers 
+            new_node.next = curr
+            curr.prev = new_node
+            before.next = new_node
+            new_node.prev = before
         self.size += 1
 
     def pop_first(self): # delete at head
@@ -92,18 +106,3 @@ class DoublyLinkedList: # https://www.geeksforgeeks.org/doubly-linked-list/
         if curr.next:
             curr.next.prev = curr.prev # adjust the next node's prev pointer
         self.size -= 1
-
-    def get(self, index):
-        if index < 0 or index >= self.size: # validate index
-            return -1
-
-        if index < self.size // 2: # 1st half of the list
-            curr = self.head
-            for _ in range(index):
-                curr = curr.next
-        else: # 2nd half of the list
-            curr = self.tail
-            for _ in range(self.size - 1, index, -1):
-                curr = curr.prev
-
-        return curr.value
