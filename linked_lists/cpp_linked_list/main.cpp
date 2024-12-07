@@ -133,6 +133,20 @@ class LinkedList
     newNode->next = head;
     head = newNode;
   }
+
+  Node* get(int index)
+  {
+    if(tail == nullptr) return nullptr; // For an empty list
+    if(index < 0 || length <= index) return nullptr;
+    if(index == 0) return head;
+
+    Node *current = head;
+    for(size_t i = 0; i < index; i++)
+      current = current->next;
+    return current;
+  }
+
+  int getLength() const { return length; }
 };
 
 int main()
@@ -150,6 +164,10 @@ int main()
   list.printLinkedList();
   list.deleteFirst();
   list.printLinkedList();
+  // cout << "Current length: " << list.getLength() << endl;
+
+  Node *node = list.get(3);
+  cout << "Node at [3] = " << node->value << endl;
 
   return 0;
 }
