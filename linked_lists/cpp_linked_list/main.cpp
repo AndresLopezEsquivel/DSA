@@ -154,6 +154,55 @@ class LinkedList
     return true;
   }
 
+  bool insert(int index, int value)
+  {
+    if(index < 0 || length <= index) return false;
+
+    if(index == 0)
+    {
+      prepend(value);
+      return true;
+    }
+
+    if(index == length - 1)
+    {
+      appendNode(value);
+      return true;
+    }
+
+    Node *newNode = new Node(value);
+    Node *prev = get(index - 1);
+    newNode->next = prev->next;
+    prev->next = newNode;
+    length++;
+    return true;
+
+  }
+
+  bool deleteNode(int index)
+  {
+    if(index < 0 || length <= index) return false;
+
+    if(index == 0)
+    {
+      deleteFirst();
+      return true;
+    }
+
+    if(index == length - 1)
+    {
+      deleteLast();
+      return true;
+    }
+
+    Node *prev = get(index - 1);
+    Node *toBeDeleted = prev->next;
+    prev->next = toBeDeleted->next;
+    delete toBeDeleted;
+    length--;
+    return true;
+  }
+
   int getLength() const { return length; }
 };
 
@@ -177,6 +226,12 @@ int main()
   cout << "Node at [3] = " << node->value << endl;
 
   list.set(3, 4);
+  list.printLinkedList();
+
+  list.insert(2, 100);
+  list.printLinkedList();
+
+  list.deleteNode(1);
   list.printLinkedList();
 
   return 0;
