@@ -146,6 +146,14 @@ class LinkedList
     return current;
   }
 
+  bool set(int index, int value)
+  {
+    Node *node = get(index);
+    if (node == nullptr) return false;
+    node->value = value;
+    return true;
+  }
+
   int getLength() const { return length; }
 };
 
@@ -164,10 +172,12 @@ int main()
   list.printLinkedList();
   list.deleteFirst();
   list.printLinkedList();
-  // cout << "Current length: " << list.getLength() << endl;
 
   Node *node = list.get(3);
   cout << "Node at [3] = " << node->value << endl;
+
+  list.set(3, 4);
+  list.printLinkedList();
 
   return 0;
 }
