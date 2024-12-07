@@ -100,6 +100,25 @@ class LinkedList
     length--;
   }
 
+  void deleteFirst()
+  {
+    if(tail == nullptr) return;
+
+    if(head == tail)
+    {
+      delete head;
+      head = nullptr;
+      tail = nullptr;
+    }
+    else
+    {
+      Node *next = head->next;
+      delete head;
+      head = next;
+    }
+    length--;
+  }
+
   void prepend(int newValue)
   {
     Node *newNode = new Node(newValue);
@@ -128,6 +147,8 @@ int main()
   list.printLinkedList();
   list.prepend(0);
   list.prepend(-1);
+  list.printLinkedList();
+  list.deleteFirst();
   list.printLinkedList();
 
   return 0;
