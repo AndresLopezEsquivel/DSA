@@ -71,6 +71,49 @@ class LinkedList
       cout << endl;
     }
   }
+
+  void deleteLast()
+  {
+    /*
+    The method has an O(n) complexity for lists with multiple nodes since it traverses
+    the list to find the second-to-last node. For very large lists, this could be a bottleneck.
+    If frequent deletions from the end are expected, consider using a doubly linked list to allow
+    O(1) deletion of the last node by maintaining a prev pointer.
+    */
+    if (tail == nullptr) return;
+
+    if (head == tail)
+    {
+      delete head;
+      head = nullptr;
+      tail = nullptr;
+    }
+    else
+    {
+      Node *tmpNode = head;
+      while(tmpNode->next != tail)
+        tmpNode = tmpNode->next;
+      delete tail;
+      tail = tmpNode;
+      tail->next = nullptr;
+    }
+    length--;
+  }
+
+  void prepend(int newValue)
+  {
+    Node *newNode = new Node(newValue);
+    length++;
+
+    if(tail == nullptr) // Empty list
+    {
+      head = tail = newNode;
+      return;
+    }
+
+    newNode->next = head;
+    head = newNode;
+  }
 };
 
 int main()
@@ -80,6 +123,11 @@ int main()
   list.appendNode(2);
   list.appendNode(3);
   list.appendNode(4);
+  list.printLinkedList();
+  list.deleteLast();
+  list.printLinkedList();
+  list.prepend(0);
+  list.prepend(-1);
   list.printLinkedList();
 
   return 0;
