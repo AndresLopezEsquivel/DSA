@@ -203,7 +203,84 @@ class LinkedList
     return true;
   }
 
+  void prependNode(Node *node)
+  {
+    Node *newNode = node;
+    length++;
+
+    if(tail == nullptr) // Empty list
+    {
+      head = tail = newNode;
+      return;
+    }
+
+    newNode->next = head;
+    head = newNode;
+  }
+
+  void reverse()
+  {
+    if(tail == nullptr || head == tail) return;
+
+    Node *previous = nullptr;
+    Node *next = nullptr;
+    Node *current = head;
+    tail = head;
+
+    while(next)
+    {
+      next = current->next;
+      current->next = previous;
+      previous = current;
+      current = next;
+    }
+
+    head = previous;
+  }
+
   int getLength() const { return length; }
+
+// == BEGIN: FIRST APPROACH FOR REVERSING A LIST ==
+//   Node* shift()
+//   {
+//     if(tail == nullptr) return nullptr;
+
+//     if(head == tail)
+//     {
+//       Node *tmpNode = head;
+//       head = nullptr;
+//       tail = nullptr;
+//       length--;
+//       return tmpNode;
+//     }
+
+//     Node *tmpNode = head;
+//     head = tmpNode->next;
+//     tmpNode->next = nullptr;
+//     length--;
+//     return tmpNode;
+//   }
+
+//   void reverse()
+//   {
+//     int tmpLength = length;
+//     Node *current = shift();
+//     Node *tmpTail = current;
+//     Node *tmpHead = current;
+
+//     while(tail != nullptr)
+//     {
+//       current = shift();
+//       current->next = tmpHead;
+//       tmpHead = current;
+//     }
+
+//     head = tmpHead;
+//     tail = tmpTail;
+//     length = tmpLength;
+//   }
+
+// == END:  APPROACH FOR REVERSING A LIST ==
 };
 
 int main()
@@ -232,6 +309,9 @@ int main()
   list.printLinkedList();
 
   list.deleteNode(1);
+  list.printLinkedList();
+
+  list.reverse();
   list.printLinkedList();
 
   return 0;
