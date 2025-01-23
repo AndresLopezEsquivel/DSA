@@ -27,3 +27,14 @@ void Stack::push(int value)
   top = new_node;
   height++;
 }
+
+int Stack::pop()
+{
+  if(!top) return INT_MIN;
+  Node* node = top;
+  int value = node->value;
+  top = top->next;
+  delete node;
+  height--;
+  return value;
+}

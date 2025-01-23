@@ -7,8 +7,15 @@ int main()
 
   s.push(2);
   s.push(3);
+  s.push(4);
 
   s.print();
+
+  std::cout << "pop(): " << s.pop() << std::endl;
+  std::cout << "pop(): " << s.pop() << std::endl;
+  std::cout << "pop(): " << s.pop() << std::endl;
+  std::cout << "pop(): " << s.pop() << std::endl;
+  std::cout << "pop(): " << s.pop() << std::endl;
 
   return 0;
 }
