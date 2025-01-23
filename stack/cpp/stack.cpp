@@ -2,13 +2,17 @@
 #include "./node.h"
 #include "./stack.h"
 
-Stack::Stack() : height(1), top(nullptr) {}
+Stack::Stack() : height(0), top(nullptr) {}
 
 Stack::Stack(int value) : height(1), top(new Node(value)) {}
 
 int Stack::get_height() const { return height; }
 
-int Stack::get_top() const { return top->value; }
+int Stack::get_top() const
+{
+  if(!top) return INT_MIN;
+  return top->value;
+}
 
 void Stack::print() const
 {
@@ -43,12 +47,9 @@ Stack::~Stack()
 {
   std::cout << "In Stack::~Stack()" << std::endl;
   if(!top) return;
-  Node* tmp;
   while(top)
   {
-    tmp = top->next;
     std::cout << "Deleting: " << top->value << std::endl;
-    delete top;
-    top = tmp;;
+    pop();
   }
 }
