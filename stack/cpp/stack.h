@@ -13,6 +13,7 @@ class Stack
   Stack();
   Stack(int value);
   void print() const;
+  void push(int value);
   int get_top() const;
   int get_height() const;
 };

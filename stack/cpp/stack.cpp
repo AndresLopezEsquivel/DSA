@@ -19,3 +19,11 @@ void Stack::print() const
     tmp = tmp->next;
   }
 }
+
+void Stack::push(int value)
+{
+  Node* new_node = new Node{value};
+  new_node->next = top;
+  top = new_node;
+  height++;
+}
