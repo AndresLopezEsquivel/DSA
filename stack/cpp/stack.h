@@ -12,6 +12,7 @@ class Stack
   public:
   Stack();
   Stack(int value);
+  ~Stack();
   void print() const;
   void push(int value);
   int pop();

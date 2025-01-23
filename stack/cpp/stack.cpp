@@ -38,3 +38,17 @@ int Stack::pop()
   height--;
   return value;
 }
+
+Stack::~Stack()
+{
+  std::cout << "In Stack::~Stack()" << std::endl;
+  if(!top) return;
+  Node* tmp;
+  while(top)
+  {
+    tmp = top->next;
+    std::cout << "Deleting: " << top->value << std::endl;
+    delete top;
+    top = tmp;;
+  }
+}
