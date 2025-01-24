@@ -45,18 +45,11 @@ void Queue::enqueue(int value)
 
 int Queue::dequeue()
 {
-  if(this->is_empty()) return INT_MIN;
+  if (this->is_empty()) throw std::out_of_range("Queue is empty");
   int value = first->value;
   Node *node = first;
-  if(first == last)
-  {
-    first = nullptr;
-    last = nullptr;
-  }
-  else
-  {
-    first = first->next;
-  }
+  first = first->next;
+  if (!first) last = nullptr;
   delete node;
   size--;
   return value;
@@ -64,5 +57,8 @@ int Queue::dequeue()
 
 Queue::~Queue()
 {
-
+    while (!this->is_empty())
+    {
+        dequeue();
+    }
 }
