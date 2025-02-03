@@ -17,8 +17,8 @@ void BinarySearchTree::printHelper(Node* node, std::string prefix, bool isLeft) 
     std::cout << node->value << std::endl;
 
     // enter the next tree level - left and right branch
-    printHelper(node->left, prefix + (isLeft ? "│   " : "    "), true);
-    printHelper(node->right, prefix + (isLeft ? "│   " : "    "), false);
+    printHelper(node->right, prefix + (isLeft ? "│   " : "    "), true);
+    printHelper(node->left, prefix + (isLeft ? "│   " : "    "), false);
   }
 }
 
