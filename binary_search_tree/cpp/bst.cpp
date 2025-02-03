@@ -1,7 +1,31 @@
+#include <iostream>
+#include <string>
 #include "bst.h"
 #include "node.h"
 
 BinarySearchTree::BinarySearchTree() : root{nullptr} {}
+
+void BinarySearchTree::printHelper(Node* node, std::string prefix, bool isLeft) const
+{
+  if (node != nullptr)
+  {
+    std::cout << prefix;
+
+    std::cout << (isLeft ? "├──" : "└──" );
+
+    // print the value of the node
+    std::cout << node->value << std::endl;
+
+    // enter the next tree level - left and right branch
+    printHelper(node->left, prefix + (isLeft ? "│   " : "    "), true);
+    printHelper(node->right, prefix + (isLeft ? "│   " : "    "), false);
+  }
+}
+
+void BinarySearchTree::print() const
+{
+  printHelper(root, "", false);
+}
 
 bool BinarySearchTree::insert(int value)
 {

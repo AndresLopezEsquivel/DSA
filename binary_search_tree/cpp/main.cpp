@@ -1,5 +1,6 @@
 #include <iostream>
 #include "node.h"
+#include "bst.h"
 
 int main()
 {
@@ -16,5 +17,18 @@ int main()
   std::cout << "node1 > node2: " << (*node1 > *node2) << std::endl; // false
   std::cout << "node1 > node3: " << (*node1 > *node3) << std::endl; // false
   std::cout << "node3 > node1: " << (*node3 > *node1) << std::endl; // false
+
+  // Test BinarySearchTree class
+  BinarySearchTree bst;
+  bst.insert(5);
+  bst.insert(3);
+  bst.insert(7);
+  bst.insert(2);
+  bst.insert(4);
+  bst.insert(6);
+  bst.insert(8);
+  std::cout << std::endl;
+  bst.print();
+
   return 0;
 }
