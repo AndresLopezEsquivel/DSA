@@ -66,3 +66,17 @@ bool BinarySearchTree::insert(int value)
 
   }
 }
+
+bool BinarySearchTree::contains(int value) const
+{
+  if(root == nullptr) return false;
+
+  Node *tmp = root;
+
+  while(tmp != nullptr)
+  {
+    if(tmp->value == value) return true;
+    tmp = (value < tmp->value) ? tmp->left : tmp->right;
+  }
+  return false;
+}

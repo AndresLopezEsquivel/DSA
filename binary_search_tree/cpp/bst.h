@@ -11,5 +11,6 @@ class BinarySearchTree
   void print() const;
   void printHelper(Node* node, std::string prefix, bool isLeft) const;
   bool insert(int value);
+  bool contains(int value) const;
 };
 #endif

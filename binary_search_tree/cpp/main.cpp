@@ -35,5 +35,12 @@ int main()
   std::cout << std::endl;
   bst.print();
 
+  std::cout << std::endl;
+  std::cout << "bst.contains(5): " << bst.contains(5) << std::endl; // true
+  std::cout << "bst.contains(3): " << bst.contains(3) << std::endl; // true
+  std::cout << "bst.contains(7): " << bst.contains(7) << std::endl; // true
+  std::cout << "bst.contains(100): " << bst.contains(100) << std::endl; // false
+  std::cout << "bst.contains(0): " << bst.contains(0) << std::endl; // false
+
   return 0;
 }
