@@ -1,6 +1,6 @@
 # Binary Search Tree in C++
 ## Output of the program
-
+```
 node1 == node2: false
 node1 == node3: true
 node1 < node2: true
@@ -30,3 +30,4 @@ bst.contains(3): true
 bst.contains(7): true
 bst.contains(100): false
 bst.contains(0): false
+```
