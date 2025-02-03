@@ -8,5 +8,6 @@ class BinarySearchTree
 
   public:
   BinarySearchTree();
+  bool insert(int value);
 };
 #endif

@@ -7,8 +7,8 @@ class Node
   Node* right;
   int value;
   Node(int value);
-  bool operator==(Node* node);
-  bool operator<(Node* node);
-  bool operator>(Node* node);
+  bool operator==(Node &node);
+  bool operator<(Node &node);
+  bool operator>(Node &node);
 };
 #endif
