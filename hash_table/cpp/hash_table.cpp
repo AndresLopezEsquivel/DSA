@@ -8,13 +8,13 @@ void HashTable::print() const
   for(size_t i = 0; i < SIZE; i++)
   {
     std::cout << i << " : " << std::endl;
-    Node *tmp = hash_table[i];
-    while(tmp != nullptr)
-    {
-      std::cout << "{" << tmp->key;
-      std::cout << " : " << tmp->value << "}";
-      std::cout << std::endl;
-    }
+    // Node *tmp = hash_table[i];
+    // while(tmp != nullptr)
+    // {
+    //   std::cout << "{" << tmp->key;
+    //   std::cout << " : " << tmp->value << "}";
+    //   std::cout << std::endl;
+    // }
   }
 }
 
@@ -29,20 +29,20 @@ int HashTable::hash(const std::string &key) const
   return hash;
 }
 
-void HashTable::set(std::string &key, int value)
+void HashTable::set(const std::string &key, int value)
 {
   int index = hash(key);
   Node *new_node = new Node{key, value};
-  Node *tmp = hash_table[index];
 
-  if(tmp == nullptr)
+  if(hash_table[index] == nullptr)
   {
-    tmp = new_node;
-    return;
+    hash_table[index] = new_node;
   }
-
-  while(tmp->next != nullptr)
-    tmp = tmp->next;
-
-  tmp = new_node;
+  else
+  {
+    Node *tmp = hash_table[index];
+    while(tmp->next != nullptr)
+      tmp = tmp->next;
+    tmp->next = new_node;
+  }
 }

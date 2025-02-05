@@ -11,7 +11,7 @@ class HashTable
   public:
   int hash(const std::string &key) const;
   void print() const;
-  void set(std::string &key, int value);
+  void set(const std::string &key, int value);
   int get(const std::string &key) const;
 };
 #endif

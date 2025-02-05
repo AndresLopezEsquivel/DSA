@@ -1,6 +1,6 @@
 #include<string>
 #include "node.h"
 
-Node::Node(std::string &key, int value)
+Node::Node(const std::string &key, int value)
 : key{key}, value{value}, next{nullptr}
 {}
