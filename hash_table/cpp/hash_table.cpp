@@ -1,6 +1,22 @@
+#include <iostream>
 #include <string>
 #include "hash_table.h"
 #include "node.h"
+
+void HashTable::print() const
+{
+  for(size_t i = 0; i < SIZE; i++)
+  {
+    std::cout << i << " : " << std::endl;
+    Node *tmp = hash_table[i];
+    while(tmp != nullptr)
+    {
+      std::cout << "{" << tmp->key;
+      std::cout << " : " << tmp->value << "}";
+      std::cout << std::endl;
+    }
+  }
+}
 
 int HashTable::hash(const std::string &key) const
 {
