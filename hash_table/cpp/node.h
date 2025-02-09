@@ -7,6 +7,6 @@ class Node
   std::string key;
   int value;
   Node* next;
-  Node(const std::string &key, int value);
+  Node(std::string key, int value);
 };
 #endif

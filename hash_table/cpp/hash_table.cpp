@@ -3,33 +3,41 @@
 #include "hash_table.h"
 #include "node.h"
 
-void HashTable::print() const
+HashTable::HashTable()
 {
   for(size_t i = 0; i < SIZE; i++)
+    hash_table[i] = nullptr;
+}
+
+void HashTable::print() const
+{
+  for(int i = 0; i < SIZE; i++)
   {
     std::cout << i << " : " << std::endl;
-    // Node *tmp = hash_table[i];
-    // while(tmp != nullptr)
-    // {
-    //   std::cout << "{" << tmp->key;
-    //   std::cout << " : " << tmp->value << "}";
-    //   std::cout << std::endl;
-    // }
+    if(hash_table[i] == nullptr) continue;
+    Node *tmp = hash_table[i];
+    while(tmp != nullptr)
+    {
+      std::cout << "{" << tmp->key;
+      std::cout << " : " << tmp->value << "}";
+      std::cout << std::endl;
+      tmp = tmp->next;
+    }
   }
 }
 
-int HashTable::hash(const std::string &key) const
+int HashTable::hash(std::string key) const
 {
-  int hash {0};
+  int index {0};
   for(size_t i = 0; i < key.length(); i++)
   {
     int ascii = int(key[i]);
-    hash = (hash + ascii * 23) % SIZE;
+    index = (index + ascii * 23) % SIZE;
   }
-  return hash;
+  return index;
 }
 
-void HashTable::set(const std::string &key, int value)
+void HashTable::set(std::string key, int value)
 {
   int index = hash(key);
   Node *new_node = new Node{key, value};
@@ -37,12 +45,10 @@ void HashTable::set(const std::string &key, int value)
   if(hash_table[index] == nullptr)
   {
     hash_table[index] = new_node;
+    return;
   }
-  else
-  {
-    Node *tmp = hash_table[index];
-    while(tmp->next != nullptr)
-      tmp = tmp->next;
-    tmp->next = new_node;
-  }
+  Node *tmp = hash_table[index];
+  while(tmp->next != nullptr)
+    tmp = tmp->next;
+  tmp->next = new_node;
 }

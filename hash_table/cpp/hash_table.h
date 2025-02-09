@@ -9,9 +9,10 @@ class HashTable
   Node* hash_table[SIZE];
 
   public:
-  int hash(const std::string &key) const;
+  HashTable();
   void print() const;
-  void set(const std::string &key, int value);
-  int get(const std::string &key) const;
+  int hash(std::string key) const;
+  void set(std::string key, int value);
+  // int get(const std::string &key) const;
 };
 #endif

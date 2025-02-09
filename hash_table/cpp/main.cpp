@@ -15,7 +15,7 @@ int main()
   ht.set("seven", 7);
   ht.set("eight", 8);
 
-  // ht.print();
+  ht.print();
 
   return 0;
 }
