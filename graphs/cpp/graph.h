@@ -12,6 +12,7 @@ class Graph
 
   public:
   bool add_vertex(std::string vertex);
+  bool add_edge(std::string vertex_1, std::string vertex_2);
 };
 
 #endif
