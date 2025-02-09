@@ -17,5 +17,13 @@ int main()
 
   ht.print();
 
+  std::cout << std::endl;
+  std::cout << "Value of key 'one' : " << ht.get("one") << std::endl;
+  std::cout << "Value of key 'two' : " << ht.get("two") << std::endl;
+  std::cout << "Value of key 'three' : " << ht.get("three") << std::endl;
+  std::cout << "Value of key 'nine' : " << ht.get("nine") << std::endl;
+  std::cout << "Value of key 'ten' : " << ht.get("ten") << std::endl;
+  std::cout << "Value of key 'eleven' : " << ht.get("eleven") << std::endl;
+
   return 0;
 }

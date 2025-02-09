@@ -13,6 +13,6 @@ class HashTable
   void print() const;
   int hash(std::string key) const;
   void set(std::string key, int value);
-  // int get(const std::string &key) const;
+  int get(std::string key) const;
 };
 #endif

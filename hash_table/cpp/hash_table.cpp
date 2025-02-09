@@ -52,3 +52,16 @@ void HashTable::set(std::string key, int value)
     tmp = tmp->next;
   tmp->next = new_node;
 }
+
+int HashTable::get(std::string key) const
+{
+  int index = hash(key);
+  if(hash_table[index] == nullptr) return 0;
+  Node* tmp = hash_table[index];
+  while(tmp != nullptr)
+  {
+    if(tmp->key == key) return tmp->value;
+    tmp = tmp->next;
+  }
+  return 0;
+}
