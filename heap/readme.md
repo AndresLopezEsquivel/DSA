@@ -8,6 +8,8 @@ A heap is a binary tree with the following properties:
 
 We can use a vector to represent a heap. The root node is at index 1, and the children of the node at index i are at indices 2i and 2i + 1. The parent of the node at index i is at index i / 2 (integer division).
 
+If the root node is at index 0, the children of the node at index i are at indices 2i + 1 and 2i + 2, and the parent of the node at index i is at index (i - 1) / 2 (integer division).
+
 Example of a max-heap:
 ```
     10
@@ -18,3 +20,7 @@ Example of a max-heap:
 ```
 
 max-heap as vector: `[10, 9, 8, 7, 6, 5, 4]`
+
+## Element insertion
+
+To insert an element into a heap, we add it to the end of the vector and then move it up the tree until the heap property (max-heap or min-heap) is satisfied.
