@@ -15,6 +15,7 @@ class Graph
   bool add_edge(std::string vertex_1, std::string vertex_2);
   bool remove_edge(std::string vertex_1, std::string vertex_2);
   bool remove_vertex(std::string vertex);
+  void print() const;
 };
 
 #endif

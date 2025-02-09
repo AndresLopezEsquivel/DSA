@@ -1,9 +1,10 @@
+#include <iostream>
 #include "graph.h"
 
 bool Graph::add_vertex(std::string vertex)
 {
-  if(adj_list.count(vertex) == 0) return false;
-  adj_list[vertex];
+  if(adj_list.count(vertex) != 0) return false;
+  adj_list[vertex] = {};
   return true;
 }
 
@@ -32,4 +33,15 @@ bool Graph::remove_vertex(std::string vertex)
     adj_list.at(v).erase(vertex);
   adj_list.erase(vertex);
   return true;
+}
+
+void Graph::print() const
+{
+  for(auto& [vertex, edges] : adj_list)
+  {
+    std::cout << vertex << " : [";
+    for(auto& v : edges)
+      std::cout << v << " ";
+    std::cout << "]" << std::endl;
+  }
 }
