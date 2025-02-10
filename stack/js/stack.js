@@ -16,6 +16,16 @@ class Stack {
         this.top = newNode;
     }
 
+    pop() {
+        if (this.top == null) {
+            return null
+        }
+
+        const poppedNode = this.top;
+        this.top = this.top.next;
+        return poppedNode.data;
+    }
+
     printStack() {
         let current = this.top;
         let result = []
