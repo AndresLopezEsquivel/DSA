@@ -17,13 +17,17 @@ class Stack {
     }
 
     pop() {
-        if (this.top == null) {
+        if (!this.top) {
             return null
         }
 
         const poppedNode = this.top;
         this.top = this.top.next;
         return poppedNode.data;
+    }
+
+    peek() {
+        return this.top ? this.top.data : null;
     }
 
     printStack() {
