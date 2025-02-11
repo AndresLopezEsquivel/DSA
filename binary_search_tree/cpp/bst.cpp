@@ -1,3 +1,4 @@
+#include <deque>
 #include <iostream>
 #include <string>
 #include "bst.h"
@@ -79,4 +80,20 @@ bool BinarySearchTree::contains(int value) const
     tmp = (value < tmp->value) ? tmp->left : tmp->right;
   }
   return false;
+}
+
+void BinarySearchTree::bfs() const
+{
+  std::deque<Node*> nodes;
+  Node* tmp = root;
+  nodes.push_back(tmp);
+  while(nodes.size() > 0)
+  {
+    tmp = nodes.front();
+    nodes.pop_front();
+    if(tmp->left) nodes.push_back(tmp->left);
+    if(tmp->right) nodes.push_back(tmp->right);
+    std::cout << tmp->value << " ";
+  }
+  std::cout << std::endl;
 }

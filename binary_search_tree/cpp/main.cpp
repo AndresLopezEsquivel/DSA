@@ -42,5 +42,9 @@ int main()
   std::cout << "bst.contains(100): " << bst.contains(100) << std::endl; // false
   std::cout << "bst.contains(0): " << bst.contains(0) << std::endl; // false
 
+  // Test BFS
+  std::cout << std::endl;
+  bst.bfs();
+
   return 0;
 }
