@@ -126,3 +126,17 @@ void BinarySearchTree::dfs_postorder(Node* node) const
   if(node->right) dfs_postorder(node->right);
   std::cout << node->value << " ";
 }
+
+void BinarySearchTree::dfs_inorder() const
+{
+  if(!root) return;
+  dfs_inorder(root);
+  std::cout << std::endl;
+}
+
+void BinarySearchTree::dfs_inorder(Node* node) const
+{
+  if(node->left) dfs_inorder(node->left);
+  std::cout << node->value << " ";
+  if(node->right) dfs_inorder(node->right);
+}

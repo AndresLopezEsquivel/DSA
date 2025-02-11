@@ -17,5 +17,7 @@ class BinarySearchTree
   void dfs_preorder(Node* node) const;
   void dfs_postorder() const;
   void dfs_postorder(Node* node) const;
+  void dfs_inorder() const;
+  void dfs_inorder(Node* node) const;
 };
 #endif

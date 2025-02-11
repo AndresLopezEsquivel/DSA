@@ -57,5 +57,10 @@ int main()
   std::cout << "DFS postorder: " << std::endl;
   bst.dfs_postorder();
 
+  // Test DFS inorder
+  std::cout << std::endl;
+  std::cout << "DFS inorder: " << std::endl;
+  bst.dfs_inorder();
+
   return 0;
 }
