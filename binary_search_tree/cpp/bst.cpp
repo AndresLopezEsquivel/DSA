@@ -84,6 +84,7 @@ bool BinarySearchTree::contains(int value) const
 
 void BinarySearchTree::bfs() const
 {
+  if(!root) return;
   std::deque<Node*> nodes;
   Node* tmp = root;
   nodes.push_back(tmp);
@@ -96,4 +97,18 @@ void BinarySearchTree::bfs() const
     std::cout << tmp->value << " ";
   }
   std::cout << std::endl;
+}
+
+void BinarySearchTree::dfs_preorder() const
+{
+  if(!root) return;
+  dfs_preorder(root);
+  std::cout << std::endl;
+}
+
+void BinarySearchTree::dfs_preorder(Node* node) const
+{
+  std::cout << node->value << " ";
+  if(node->left) dfs_preorder(node->left);
+  if(node->right) dfs_preorder(node->right);
 }

@@ -13,5 +13,7 @@ class BinarySearchTree
   bool insert(int value);
   bool contains(int value) const;
   void bfs() const;
+  void dfs_preorder() const;
+  void dfs_preorder(Node* node) const;
 };
 #endif

@@ -44,7 +44,13 @@ int main()
 
   // Test BFS
   std::cout << std::endl;
+  std::cout << "BFS: " << std::endl;
   bst.bfs();
+
+  // Test DFS preorder
+  std::cout << std::endl;
+  std::cout << "DFS preorder: " << std::endl;
+  bst.dfs_preorder();
 
   return 0;
 }
