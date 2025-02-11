@@ -52,5 +52,10 @@ int main()
   std::cout << "DFS preorder: " << std::endl;
   bst.dfs_preorder();
 
+  // Test DFS postorder
+  std::cout << std::endl;
+  std::cout << "DFS postorder: " << std::endl;
+  bst.dfs_postorder();
+
   return 0;
 }

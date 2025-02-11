@@ -112,3 +112,17 @@ void BinarySearchTree::dfs_preorder(Node* node) const
   if(node->left) dfs_preorder(node->left);
   if(node->right) dfs_preorder(node->right);
 }
+
+void BinarySearchTree::dfs_postorder() const
+{
+  if(!root) return;
+  dfs_postorder(root);
+  std::cout << std::endl;
+}
+
+void BinarySearchTree::dfs_postorder(Node* node) const
+{
+  if(node->left) dfs_postorder(node->left);
+  if(node->right) dfs_postorder(node->right);
+  std::cout << node->value << " ";
+}
