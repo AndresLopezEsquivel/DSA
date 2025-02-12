@@ -30,7 +30,6 @@ class Queue {
         return this.front === this.rear;
     }
 
-
     // Returns the front element without removing it.
     peek() {
         return this.isEmpty() ? null : this.items[this.front];
