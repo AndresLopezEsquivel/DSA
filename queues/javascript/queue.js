@@ -10,6 +10,13 @@ class Queue {
         this.items[this.rear] = element;
         this.rear++
     }
+
+    dequeue() {
+        const item = this.items[this.front]
+        delete this.items[this.front]
+        this.front++
+        return item
+    }
 }
 
 module.exports = Queue;
