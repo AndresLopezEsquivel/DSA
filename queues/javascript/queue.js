@@ -4,6 +4,10 @@ class Queue {
         this.rear = 0
         this.front = 0
     }
+    
+    print() {
+        return this.items
+    }
 
     // The enqueue() method adds an element to the back (rear) of the queue.
     enqueue(element) {
@@ -24,6 +28,12 @@ class Queue {
 
     isEmpty() {
         return this.front === this.rear;
+    }
+
+
+    // Returns the front element without removing it.
+    peek() {
+        return this.isEmpty() ? null : this.items[this.front];
     }
 }
 
