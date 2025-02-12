@@ -13,3 +13,12 @@ console.log(queue.front); // 2
 queue.dequeue();
 console.log(queue.items); // { '1': 85, '2': 42 }
 
+queue.dequeue();
+console.log(queue.items); 
+console.log(queue.isEmpty());
+
+queue.dequeue();
+console.log(queue.items); 
+console.log(queue.isEmpty());
+
+

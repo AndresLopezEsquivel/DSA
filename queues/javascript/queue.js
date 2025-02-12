@@ -8,14 +8,22 @@ class Queue {
     // The enqueue() method adds an element to the back (rear) of the queue.
     enqueue(element) {
         this.items[this.rear] = element;
-        this.rear++
+        this.rear++;
     }
 
     dequeue() {
-        const item = this.items[this.front]
-        delete this.items[this.front]
-        this.front++
-        return item
+        if (this.isEmpty()) {
+            return null;
+        }
+
+        const item = this.items[this.front];
+        delete this.items[this.front];
+        this.front++;
+        return item;
+    }
+
+    isEmpty() {
+        return this.front === this.rear;
     }
 }
 
