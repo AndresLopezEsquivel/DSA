@@ -17,28 +17,30 @@ std::ostream& operator<<(std::ostream& os, std::array<T,N> array)
 template<size_t N>
 void insertion_sort(std::array<int, N>& array)
 {
+  int iterations {0};
   for(size_t i = 1; i < N; i++)
   {
     int j = i;
     int k = i - 1;
-    while(j >= 0 && k >= 0)
+    while(j >= 0 && k >= 0 && array[k] > array[j])
     {
-      if(array[k] > array[j])
-      {
-        int tmp = array[k];
-        array[k] = array[j];
-        array[j] = tmp;
-        j--;
-        k--;
-      }
+      int tmp = array[k];
+      array[k] = array[j];
+      array[j] = tmp;
+      j--;
+      k--;
+      iterations++;
     }
+    iterations++;
     std::cout << array << std::endl;
   }
+  std::cout << "N: " << N << std::endl;
+  std::cout << "Total iterations: " << iterations << std::endl;
 }
 
 int main()
 {
-  std::array<int, 5> numbers {5, 4, 3, 2, 1};
+  std::array<int, 5> numbers {1, 2, 3, 5, 4};
   std::cout << "BEFORE SORTING: " << numbers << std::endl;
   insertion_sort(numbers);
   std::cout << "AFTER SORTING: " << numbers << std::endl;
