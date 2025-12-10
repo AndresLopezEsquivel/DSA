@@ -13,6 +13,13 @@ Image source: *Introduction to Algorithms, 3rd Edition, by Thomas H. Cormen, Cha
 
 **Big O**
 
+* Represents an upper bound on the growth rate of a function.
+* Indicates $f(n)$ doesn’t grow faster than $g(n)$, up to a constant factor, for large $n$.
+* It is not the same as the worst-case scenario (time, space, etc.), it is just an upper bound, although in practice it's often associated with the worst-case scenario.
+* It is an upper bound, but not necessarily the tightest one. It accepts any function that will eventually become an upper bound for sufficiently large $n$. The tightest upper bound is the one that grows as close as possible to $f(n)$.
+
+*Formal Definition:*
+
 $$
 f(n) = O(g(n))
 $$
@@ -21,14 +28,11 @@ $$
 0 \leq f(n) \leq c \cdot g(n) \quad \text{for all} \quad n \geq n_0, C > 0
 $$
 
-* Represents an upper bound on the growth rate of a function.
-* Indicates $f(n)$ doesn’t grow faster than $g(n)$, up to a constant factor, for large $n$.
-* It is not the same as the worst-case scenario (time or space complexity), it is just an upper bound, although in practice it's often associated with the worst-case scenario.
-* It is an upper bound, but not necessarily the tightest one. It accepts any function that will eventually become an upper bound for sufficiently large $n$. The tightest upper bound is the one that grows as close as possible to $f(n)$.
+* $n$ represents the size of the input to the algorithm (e.g., number of elements in an array).
+* $f(n)$ is the exact cost function of the algorithm as a function of input size $n$ (e.g., running time, number of operations, memory usage).
+* $g(n)$ is a reference growth function we choose to compare against $f(n)$. It's usually something standard like $g(n) = n, n^2, \log n, 2^n$, etc. We pick $g(n)$ to summarize the growth of $f(n)$.
+* $O(n)$ is not a single function, but a set of functions that grow no faster than $g(n)$ up to a constant factor.
 
-Let's consider $f(n) = 3n + 10$. The following two statements are true:
-
-1. $f(n) = O(n)$
-2. $f(n) = O(n^2)$
-
-However,$O(n)$ is a tighter bound than $O(n^2)$ because $n$ grows closer to $f(n)$ than $n^2$ does as $n$ increases.
+$$
+O(g(n)) = \{ f(n) \mid \exists C > 0, n_0 \geq 0: 0 \leq f(n) \leq C \cdot g(n), \forall n \geq n_0 \}
+$$
