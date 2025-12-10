@@ -1,5 +1,18 @@
 # Asymptotic Analysis
 
+## Growth of Functions
+
+* The order of growth of an algorithm's running time represents a simple characterization of the algorithm's efficiency.
+* Although sometimes it is possible to determine the exact running time of an algorithm, in practice we often focus on how the running time grows as the input size increases. For large enough inputs, multiplicative constants and lower-order terms become less significant.
+
+## Asymptotic Notation
+
+* Asymptotic notation is used primarily to <u>describe</u> the running times of algorithms.
+* Asymptotic notation actually applies to functions.
+* Generally, the functions to which we apply asymptotic notation represent the running times of algorithms, however, asymptotic notation could also be applied to functions that represent other aspects of algorithms, such as the amount of space they use.
+* We need to understand which running time we mean (best-case, average-case, or worst-case) when we use asymptotic notation to describe an algorithm's running time.
+
+
 
 ## Formal definitions of Big O, Big Omega, and Big Theta
 
@@ -36,3 +49,7 @@ $$
 $$
 O(g(n)) = \{ f(n) \mid \exists C > 0, n_0 \geq 0: 0 \leq f(n) \leq C \cdot g(n), \forall n \geq n_0 \}
 $$
+
+**Resources:**
+
+* Introduction to Algorithms, 3rd Edition, by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein
