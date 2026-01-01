@@ -50,6 +50,8 @@ $$
 O(g(n)) = \{ f(n) \mid \exists C > 0, n_0 \geq 0: 0 \leq f(n) \leq C \cdot g(n), \forall n \geq n_0 \}
 $$
 
+* O-notation provides an upper bound for a function to within a constant factor. We write $f(n) = O(g(n))$ if there exist positive constants $C$ and $n_0$ such that at and to the right of $n_0$, $f(n)$ always lies at or below $C \cdot g(n)$.
+
 **Resources:**
 
 * Introduction to Algorithms, 3rd Edition, by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein
